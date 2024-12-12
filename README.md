@@ -13,6 +13,10 @@
 
 ---
 
+![image](https://github.com/user-attachments/assets/27b9156a-697f-44a2-b501-803cce0da7b3)
+
+---
+
 ## Directory Structure
 ```
 slide_generator_api/
