@@ -15,84 +15,198 @@
 
 ## API Endpoints
 
-### 1. Create a New Presentation
-**Endpoint:** `POST /api/v1/presentations`
+# Slide Generator API
 
-**Description:**
-Creates a new presentation with default or provided parameters.
+This API allows users to generate, retrieve, and configure presentations dynamically. It uses a generative AI model to create content for slides based on user inputs.
 
-**Request:**
+## Base URL
+
+```
+http://localhost:8000/api/v1
+```
+
+---
+
+## Endpoints
+
+### 1. Create a Presentation
+
+**URL:** `/presentations`
+
+**Method:** `POST`
+
+**Description:** Creates a new presentation with generated content and saves it.
+
+#### Request Body (JSON):
 ```json
 {
-  "title": "My Presentation",
-  "slides": [
-    { "title": "Slide 1", "content": "Introduction" },
-    { "title": "Slide 2", "content": "Details" }
-  ]
+  "topic": "<string>",
+  "num_slides": <integer>,
+  "custom_content": "<string (optional)>"
 }
 ```
 
-**Response:**
+| Parameter       | Type    | Required | Description                                     |
+|-----------------|---------|----------|-------------------------------------------------|
+| `topic`         | string  | Yes      | The topic of the presentation.                 |
+| `num_slides`    | integer | Yes      | Number of slides to generate.                  |
+| `custom_content`| string  | No       | Optional custom content to include in slides.  |
+
+#### Response (200 OK):
 ```json
 {
-  "id": "12345",
-  "status": "success",
-  "message": "Presentation created successfully."
+  "id": "<string>",
+  "message": "Presentation created successfully"
+}
+```
+
+#### Error Response (500 Internal Server Error):
+```json
+{
+  "detail": "An error occurred while creating the presentation."
 }
 ```
 
 ---
 
-### 2. Retrieve Presentation Details
-**Endpoint:** `GET /api/v1/presentations/{id}`
+### 2. Get Presentation Details
 
-**Description:**
-Fetches details of a presentation by ID.
+**URL:** `/presentations/{presentation_id}`
 
-**Response:**
+**Method:** `GET`
+
+**Description:** Retrieves the details of a specific presentation.
+
+#### Path Parameter:
+| Parameter         | Type    | Description                         |
+|-------------------|---------|-------------------------------------|
+| `presentation_id` | string  | The ID of the presentation to fetch.|
+
+#### Response (200 OK):
 ```json
 {
-  "id": "12345",
-  "title": "My Presentation",
-  "slides": [...],
-  "created_at": "YYYY-MM-DD HH:MM:SS"
+  "id": "<string>",
+  "slides": [
+    {
+      "title": "<string>",
+      "content": "<string>"
+    },
+    ...
+  ]
+}
+```
+
+#### Error Response (404 Not Found):
+```json
+{
+  "detail": "Presentation not found"
 }
 ```
 
 ---
 
 ### 3. Download Presentation
-**Endpoint:** `GET /api/v1/presentations/{id}/download`
 
-**Description:**
-Downloads the presentation as a PPTX file.
+**URL:** `/presentations/{presentation_id}/download`
 
-**Response:**
-Returns a downloadable PPTX file.
+**Method:** `GET`
+
+**Description:** Downloads the generated presentation as a `.pptx` file.
+
+#### Path Parameter:
+| Parameter         | Type    | Description                         |
+|-------------------|---------|-------------------------------------|
+| `presentation_id` | string  | The ID of the presentation to fetch.|
+
+#### Response (File Download):
+- A `.pptx` file with the generated presentation.
+
+#### Error Response (404 Not Found):
+```json
+{
+  "detail": "Presentation not found"
+}
+```
 
 ---
 
-### 4. Modify Presentation Configuration
-**Endpoint:** `POST /api/v1/presentations/{id}/configure`
+### 4. Configure Presentation
 
-**Description:**
-Updates the configuration of a specific presentation.
+**URL:** `/presentations/{presentation_id}/configure`
 
-**Request:**
+**Method:** `POST`
+
+**Description:** Updates an existing presentation's slides using provided configurations.
+
+#### Path Parameter:
+| Parameter         | Type    | Description                         |
+|-------------------|---------|-------------------------------------|
+| `presentation_id` | string  | The ID of the presentation to update.|
+
+#### Request Body (JSON):
 ```json
 {
-  "title": "Updated Presentation Title",
-  "theme": "dark"
+  "slides": [
+    {
+      "title": "<string>",
+      "content": "<string>"
+    },
+    ...
+  ]
 }
 ```
 
-**Response:**
+| Parameter   | Type  | Required | Description                        |
+|-------------|-------|----------|------------------------------------|
+| `slides`    | array | Yes      | An array of slide objects to update.|
+
+#### Response (200 OK):
 ```json
 {
-  "status": "success",
-  "message": "Configuration updated successfully."
+  "message": "Presentation updated successfully",
+  "presentation": {
+    "id": "<string>",
+    "slides": [
+      {
+        "title": "<string>",
+        "content": "<string>"
+      },
+      ...
+    ]
+  }
 }
 ```
+
+#### Error Responses:
+- **404 Not Found:**
+  ```json
+  {
+    "detail": "Presentation not found"
+  }
+  ```
+- **400 Bad Request:**
+  ```json
+  {
+    "detail": "Unable to update the presentation"
+  }
+  ```
+
+---
+
+## Setup and Running the API
+
+1. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Set the `GOOGLE_API_KEY` in the `.env` file.
+3. Start the FastAPI server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+4. Access the API documentation:
+   - Doc Link: [http://localhost:8000/redoc](http://localhost:8000/docs)
+
 
 ---
 
