@@ -1,7 +1,7 @@
-# a79.ai
+# Slide Generator API
 
 ## Overview
-**a79.ai** is an API-based project designed to automate the generation of professional slide presentations. It provides endpoints to create, retrieve, configure, and download presentations in PPTX format. The application is structured to ensure modularity and scalability, with a focus on efficient content generation and storage management.
+**Slide Generator API** is an API-based project designed to automate the generation of professional slide presentations. It provides endpoints to create, retrieve, configure, and download presentations in PPTX format. The application is structured to ensure modularity and scalability, with a focus on efficient content generation and storage management.
 
 ---
 
@@ -10,6 +10,28 @@
 - **Retrieve Details**: Fetch metadata and configuration details of presentations.
 - **Download PPTX**: Export and download presentations as PowerPoint files.
 - **Configure Slides**: Update presentation configurations for customization.
+
+---
+
+## Directory Structure
+```
+slide_generator_api/
+├── app/
+│   ├── __init__.py             # Application initialization
+│   ├── main.py                 # Entry point of the API
+│   ├── models.py               # Database models
+│   ├── services/               # Core business logic
+│   │   ├── __init__.py
+│   │   ├── content_generator.py # Generates content for slides
+│   │   └── slide_generator.py   # Generates slide layouts
+│   ├── utils/                  # Utility modules
+│   │   ├── __init__.py
+│   │   └── storage.py           # Handles file storage
+│   └── static/
+│       └── index.html          # HTML template for front-end (if any)
+├── requirements.txt            # Python dependencies
+└── .env                        # Environment configuration
+```
 
 ---
 
@@ -191,31 +213,6 @@
    ```bash
    uvicorn main:app --reload
    ```
-4. Access the API documentation:
-   - Doc Link: [http://localhost:8000/redoc](http://localhost:8000/docs)
-
-
----
-
-## Directory Structure
-```
-slide_generator_api/
-├── app/
-│   ├── __init__.py             # Application initialization
-│   ├── main.py                 # Entry point of the API
-│   ├── models.py               # Database models
-│   ├── services/               # Core business logic
-│   │   ├── __init__.py
-│   │   ├── content_generator.py # Generates content for slides
-│   │   └── slide_generator.py   # Generates slide layouts
-│   ├── utils/                  # Utility modules
-│   │   ├── __init__.py
-│   │   └── storage.py           # Handles file storage
-│   └── static/
-│       └── index.html          # HTML template for front-end (if any)
-├── requirements.txt            # Python dependencies
-└── .env                        # Environment configuration
-```
 
 ---
 
