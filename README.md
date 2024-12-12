@@ -261,7 +261,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For queries or support, reach out to:
-- Email: nag2mani@example.com
+- Email: nag2mani@gmail.com
 - GitHub: [nag2mani](https://github.com/nag2mani)
 
 ---
