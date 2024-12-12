@@ -1,8 +1,22 @@
 from pptx import Presentation
-from pptx.util import Inches, Pt
+from pptx.util import Pt
+from pptx.dml.color import RGBColor
 import json
 import os
 import logging
+
+def set_gradient_background(slide, color1, color2):
+    """
+    Apply a gradient background to a slide with two colors.
+    """
+    background = slide.background
+    fill = background.fill
+    fill.gradient()
+    stop1 = fill.gradient_stops[0]
+    stop2 = fill.gradient_stops[1]
+    stop1.position, stop2.position = 0.0, 1.0
+    stop1.color.rgb = RGBColor(*color1)
+    stop2.color.rgb = RGBColor(*color2)
 
 def generate_slides(content, presentation_id="presentation"):
     prs = Presentation()
@@ -21,6 +35,11 @@ def generate_slides(content, presentation_id="presentation"):
         slide = prs.slides.add_slide(prs.slide_layouts[1])  # Using bullet layout
         title_text = slide_content.get("title", f"Slide {i+1}")
         content_text = slide_content.get("content", [])
+        bg_color1 = slide_content.get("bg_color1", (255, 255, 255))  # Default white
+        bg_color2 = slide_content.get("bg_color2", (0, 0, 0))        # Default black
+
+        # Apply gradient background
+        set_gradient_background(slide, bg_color1, bg_color2)
 
         # Title
         try:
@@ -51,4 +70,3 @@ def generate_slides(content, presentation_id="presentation"):
     prs.save(output_path)
     logging.info(f"Presentation saved at '{output_path}'")
     return output_path
-
