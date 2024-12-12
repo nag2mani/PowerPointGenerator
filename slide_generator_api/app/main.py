@@ -1,4 +1,5 @@
 import uuid
+import uvicorn
 from pydantic import BaseModel
 from typing import List, Optional
 from fastapi.responses import FileResponse
@@ -31,11 +32,8 @@ class PresentationCreate(BaseModel):
     custom_content: Optional[str] = None
 
 class PresentationConfigure(BaseModel):
-    num_slides: Optional[int] = None
-    layout: Optional[str] = None
-    theme: Optional[str] = None
-    font: Optional[str] = None
-    color: Optional[str] = None
+    title: str
+    slides: list[str]
 
 # Add a root route to serve the index.html file
 @app.get("/")
@@ -70,6 +68,7 @@ async def get_presentation_details(presentation_id: str):
         raise HTTPException(status_code=404, detail="Presentation not found")
     return presentation
 
+
 @app.get("/api/v1/presentations/{presentation_id}/download")
 async def download_presentation(presentation_id: str):
     presentation = get_presentation(presentation_id)
@@ -79,14 +78,18 @@ async def download_presentation(presentation_id: str):
     file_path = os.path.join(os.getcwd(), "presentations", f"{presentation_id}.pptx")
     return FileResponse(file_path, filename=f"presentation_{presentation_id}.pptx")
 
+
 @app.post("/api/v1/presentations/{presentation_id}/configure")
 async def configure_presentation(presentation_id: str, config: PresentationConfigure):
     presentation = get_presentation(presentation_id)
     if not presentation:
         raise HTTPException(status_code=404, detail="Presentation not found")
-    updated_presentation = update_presentation(presentation_id, config.dict(exclude_unset=True))
+    # Update the presentation using the provided configuration
+    updated_presentation = update_presentation(presentation_id, {"slides": config.slides})
+    if not updated_presentation:
+        raise HTTPException(status_code=400, detail="Unable to update the presentation")
     return {"message": "Presentation updated successfully", "presentation": updated_presentation}
 
+
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
