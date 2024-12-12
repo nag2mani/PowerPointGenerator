@@ -15,19 +15,6 @@
 
 ## API Endpoints
 
-# Slide Generator API
-
-This API allows users to generate, retrieve, and configure presentations dynamically. It uses a generative AI model to create content for slides based on user inputs.
-
-## Base URL
-
-```
-http://localhost:8000/api/v1
-```
-
----
-
-## Endpoints
 
 ### 1. Create a Presentation
 
