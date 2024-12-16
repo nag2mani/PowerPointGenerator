@@ -4,8 +4,11 @@
 **Slide Generator API** is an API-based project designed to automate the generation of professional slide presentations. It provides endpoints to create, retrieve, configure, and download presentations in PPTX format. The application is structured to ensure modularity and scalability, with a focus on efficient content generation and storage management.
 
 ## Video Link & Live App Link;
+
 **Video Link**: https://drive.google.com/file/d/1aAFGqgPZJylkaSBQtEa13K-vso0uXP47/view?usp=sharing
+
 **Deployed App Link**: https://pptgenerator.onrender.com
+
 ---
 
 ## Features
