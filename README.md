@@ -55,8 +55,8 @@ slide_generator_api/
 #### Request Body (JSON):
 ```json
 {
-  "topic": "<string>",
-  "num_slides": <integer>,
+  "topic": String,
+  "num_slides": Integer,
   "custom_content": "<string (optional)>"
 }
 ```
@@ -106,7 +106,6 @@ slide_generator_api/
       "title": "<string>",
       "content": "<string>"
     },
-    ...
   ]
 }
 ```
@@ -166,7 +165,6 @@ slide_generator_api/
       "title": "<string>",
       "content": "<string>"
     },
-    ...
   ]
 }
 ```
@@ -186,7 +184,6 @@ slide_generator_api/
         "title": "<string>",
         "content": "<string>"
       },
-      ...
     ]
   }
 }
