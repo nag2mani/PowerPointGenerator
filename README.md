@@ -228,8 +228,8 @@ slide_generator_api/
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/a79.ai.git
-   cd a79.ai/slide_generator_api
+   git clone https://github.com/nag2mani/PowerPointGenerator.git
+   cd PowerPointGenerator/slide_generator_api
    ```
 
 2. Create a virtual environment and activate it:
