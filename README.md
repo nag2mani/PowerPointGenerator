@@ -254,17 +254,3 @@ slide_generator_api/
    ```bash
    python app/main.py
    ```
-
----
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-## Contact
-For queries or support, reach out to:
-- Email: nag2mani@gmail.com
-- GitHub: [nag2mani](https://github.com/nag2mani)
-
----
