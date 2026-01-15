@@ -1,0 +1,141 @@
+{
+	"info": {
+		"name": "PowerPoint Generator API",
+		"description": "Collection for testing PowerPoint Generator API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["health"]
+				}
+			}
+		},
+		{
+			"name": "Root - API Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": [""]
+				}
+			}
+		},
+		{
+			"name": "Create Presentation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"topic\": \"Introduction to Python Programming\",\n    \"num_slides\": 5,\n    \"custom_content\": \"Focus on data science and web development\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/presentations",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "v1", "presentations"]
+				}
+			}
+		},
+		{
+			"name": "Get Presentation Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/presentations/{{presentation_id}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "v1", "presentations", "{{presentation_id}}"],
+					"variable": [
+						{
+							"key": "presentation_id",
+							"value": "your-presentation-id-here"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Download Presentation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/presentations/{{presentation_id}}/download",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "v1", "presentations", "{{presentation_id}}", "download"],
+					"variable": [
+						{
+							"key": "presentation_id",
+							"value": "your-presentation-id-here"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Configure Presentation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Presentation Title\",\n    \"slides\": [\n        {\n            \"title\": \"Slide 1 Title\",\n            \"content\": [\"Point 1\", \"Point 2\", \"Point 3\"]\n        },\n        {\n            \"title\": \"Slide 2 Title\",\n            \"content\": [\"Point A\", \"Point B\"]\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/presentations/{{presentation_id}}/configure",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "v1", "presentations", "{{presentation_id}}", "configure"],
+					"variable": [
+						{
+							"key": "presentation_id",
+							"value": "your-presentation-id-here"
+						}
+					]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "presentation_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

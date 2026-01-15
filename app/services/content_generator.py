@@ -26,7 +26,7 @@ async def generate_content(topic: str, num_slides: int, custom_content: str = No
     Raises:
         Exception: If there are issues with content generation or validation.
     """
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
 
     # Create the prompt for the AI model
     prompt = (

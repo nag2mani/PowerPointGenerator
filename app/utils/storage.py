@@ -14,6 +14,3 @@ def update_presentation(presentation_id: str, updates: dict):
         presentations[presentation_id].update(updates)
         return presentations[presentation_id]
     return None
-
-
-
