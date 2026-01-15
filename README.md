@@ -1,10 +1,10 @@
-# 🚀 PowerPoint Generator API
+# PowerPoint Generator API
 
 A production-ready, high-performance RESTful API that leverages cutting-edge AI technology to generate stunning, professional PowerPoint presentations automatically. Built with FastAPI and powered by Google's Gemini AI, this API delivers beautiful, colorful presentations with intelligent content generation and advanced formatting capabilities.
 
 ---
 
-## 📊 API Response Times
+## API Response Times
 
 - **Health Check**: < 10ms
 - **Create Presentation**: 5-15 seconds (depends on AI generation)
@@ -13,7 +13,7 @@ A production-ready, high-performance RESTful API that leverages cutting-edge AI 
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
 ### Core Capabilities
 - ✅ **AI-Powered Content Generation**: Automatically generates relevant, high-quality content for any topic
@@ -32,7 +32,7 @@ A production-ready, high-performance RESTful API that leverages cutting-edge AI 
 
 ---
 
-## 📚 API Documentation
+## API Documentation
 
 ### Base URL
 ```
@@ -45,7 +45,7 @@ http://localhost:8000
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### 1. Health Check
 **`GET /health`**
@@ -84,7 +84,7 @@ Get API information and available endpoints.
 
 ---
 
-### 3. Create Presentation ⭐
+### 3. Create Presentation
 **`POST /api/v1/presentations`**
 
 Generate a new AI-powered presentation.
@@ -198,7 +198,7 @@ Update an existing presentation with custom content.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -269,7 +269,7 @@ PowerPointGenerator/
 
 ---
 
-## 🎨 Design Features
+## Design Features
 
 ### Color Palettes
 Each slide automatically gets a unique, vibrant gradient:
@@ -296,7 +296,7 @@ Each slide automatically gets a unique, vibrant gradient:
 
 ---
 
-## 📝 Example Usage
+## Example Usage
 
 ### Using cURL
 
