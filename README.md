@@ -2,14 +2,35 @@
 
 A production-ready, high-performance RESTful API that leverages cutting-edge AI technology to generate stunning, professional PowerPoint presentations automatically. Built with FastAPI and powered by Google's Gemini AI, this API delivers beautiful, colorful presentations with intelligent content generation and advanced formatting capabilities.
 
----
-
 ## API Response Times
 
 - **Health Check**: < 10ms
 - **Create Presentation**: 5-15 seconds (depends on AI generation)
 - **Get Presentation**: < 50ms
 - **Download Presentation**: < 100ms
+
+---
+
+## Sample Slides – Personal Finance
+
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/8bdfa224-7098-4e67-885d-02bf8709767c" width="100%" />
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/b7e693a3-4373-41d7-819a-71e01efa57a7" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/11bd218f-7faa-432f-bf8a-fd40bfc956b4" width="100%" />
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/c3d26d92-5c54-4468-a10d-f1f881ccf7a9" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ---
 
