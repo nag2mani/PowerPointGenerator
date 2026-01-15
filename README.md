@@ -1,46 +1,15 @@
 # 🚀 PowerPoint Generator API
 
-> **Enterprise-Grade RESTful API for AI-Powered Presentation Generation**
-
-A production-ready, high-performance backend API that leverages cutting-edge AI technology to generate stunning, professional PowerPoint presentations automatically. Built with FastAPI and powered by Google's Gemini AI, this API delivers beautiful, colorful presentations with intelligent content generation and advanced formatting capabilities.
-
-**🌐 Live API**: https://pptgenerator.onrender.com
+A production-ready, high-performance RESTful API that leverages cutting-edge AI technology to generate stunning, professional PowerPoint presentations automatically. Built with FastAPI and powered by Google's Gemini AI, this API delivers beautiful, colorful presentations with intelligent content generation and advanced formatting capabilities.
 
 ---
 
-## ✨ Why This is the Best Backend API
+## 📊 API Response Times
 
-### 🎯 **Production-Ready Architecture**
-- **FastAPI Framework**: Built on modern, high-performance async Python framework
-- **RESTful Design**: Clean, intuitive REST API following industry best practices
-- **Comprehensive Error Handling**: Detailed error messages and proper HTTP status codes
-- **CORS Enabled**: Ready for cross-origin requests from any frontend
-- **Auto-Generated Documentation**: Interactive Swagger UI and ReDoc documentation
-
-### 🤖 **AI-Powered Intelligence**
-- **Google Gemini 2.5 Flash**: Latest AI model for intelligent content generation
-- **Context-Aware**: Understands topics and generates relevant, coherent content
-- **Customizable**: Support for custom content injection and specific requirements
-- **Smart Formatting**: Automatically handles markdown formatting (bold, italic) in generated content
-
-### 🎨 **Stunning Visual Design**
-- **8 Beautiful Color Palettes**: Each slide features unique, vibrant gradient backgrounds
-- **Professional Typography**: Carefully selected fonts, sizes, and spacing
-- **Smart Layout Management**: Automatic content containment with proper margins
-- **Responsive Design**: Content automatically adjusts to prevent overflow
-- **Visual Accents**: Decorative elements and professional styling
-
-### ⚡ **Performance & Scalability**
-- **Async Operations**: Non-blocking I/O for maximum throughput
-- **Efficient Storage**: Optimized file handling and presentation management
-- **Fast Response Times**: Optimized for quick presentation generation
-- **Resource Management**: Proper memory and file handling
-
-### 🔒 **Developer Experience**
-- **Interactive API Docs**: Test endpoints directly from Swagger UI (`/docs`)
-- **Clear Documentation**: Comprehensive endpoint documentation with examples
-- **Type Safety**: Pydantic models for request/response validation
-- **Easy Integration**: Simple JSON-based API, perfect for any frontend framework
+- **Health Check**: < 10ms
+- **Create Presentation**: 5-15 seconds (depends on AI generation)
+- **Get Presentation**: < 50ms
+- **Download Presentation**: < 100ms
 
 ---
 
@@ -243,12 +212,6 @@ Update an existing presentation with custom content.
    cd PowerPointGenerator
    ```
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
 3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
@@ -263,11 +226,6 @@ Update an existing presentation with custom content.
 5. **Run the API server**
    ```bash
    uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-   ```
-
-   Or using Python directly:
-   ```bash
-   python app/main.py
    ```
 
 6. **Access the API**
@@ -402,102 +360,5 @@ const presentationId = data.id;
 window.location.href = `http://localhost:8000/api/v1/presentations/${presentationId}/download`;
 ```
 
----
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-GOOGLE_API_KEY=your_google_gemini_api_key_here
-```
-
-### API Configuration
-
-The API runs on:
-- **Host**: `0.0.0.0` (all interfaces)
-- **Port**: `8000`
-- **Reload**: Enabled in development mode
-
----
-
-## 🧪 Testing
-
-### Health Check
-```bash
-curl http://localhost:8000/health
-```
-
-### Interactive Testing
-Visit http://localhost:8000/docs to use the interactive Swagger UI for testing all endpoints.
-
----
-
-## 🚀 Deployment
-
-### Production Deployment
-
-1. **Set environment variables** on your hosting platform
-2. **Install dependencies**: `pip install -r requirements.txt`
-3. **Run with production server**:
-   ```bash
-   uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
-   ```
-
-### Recommended Platforms
-- **Render**: Easy deployment with automatic SSL
-- **Heroku**: Simple git-based deployment
-- **AWS EC2**: Full control and scalability
-- **DigitalOcean**: Developer-friendly cloud platform
-- **Railway**: Modern deployment platform
-
----
-
-## 📊 API Response Times
-
-- **Health Check**: < 10ms
-- **Create Presentation**: 5-15 seconds (depends on AI generation)
-- **Get Presentation**: < 50ms
-- **Download Presentation**: < 100ms
-
----
-
-## 🔐 Security Features
-
-- ✅ CORS middleware for secure cross-origin requests
-- ✅ Input validation with Pydantic models
-- ✅ Error handling without exposing sensitive information
-- ✅ Environment variable management for API keys
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## 📄 License
-
-See [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**Nagmani**
-
-- GitHub: [@nag2mani](https://github.com/nag2mani)
-- Project: [PowerPointGenerator](https://github.com/nag2mani/PowerPointGenerator)
-
----
-
-## 🌟 Star History
-
-If you find this API useful, please consider giving it a ⭐ on GitHub!
-
----
 
 **Built with ❤️ using FastAPI and Google Gemini AI**
